@@ -14,7 +14,7 @@ const NavbarComponent = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="text-white">
                         <Nav.Link   href="#link">{t("Home")}</Nav.Link>
-                        <Nav.Link   href="#link">{t("Clothes items")}</Nav.Link>
+                        <Nav.Link   href="clothes-items">{t("Clothes items")}</Nav.Link>
                         <Nav.Link   href="#link">{t("Saved sets")}</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
