@@ -5,15 +5,20 @@ import './Styles/Index.css';
 import Index from './Pages/Index';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './i18n.tsx';//GLOBAL CALL
+import './i18n.tsx';
+import Main from "./Components/MainRouter";
+import {BrowserRouter} from "react-router-dom";
+//GLOBAL CALL
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-      <Navigation/>
-      <Index/>
+      <BrowserRouter>
+        <Navigation/>
+        <Main/>
+      </BrowserRouter>
   </React.StrictMode>
 );
 

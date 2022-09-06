@@ -39,6 +39,7 @@ function ClothesItems(){
 
     return (
         <Container>
+            <h1>Cloth Items</h1>
             <Row>
                 {
                     data && data.length>0 && data.map(
