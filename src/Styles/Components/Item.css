@@ -1,0 +1,10 @@
+.item-container{
+    width: 18rem;
+    border:none;
+    padding:5%;
+    margin:4% auto;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+}

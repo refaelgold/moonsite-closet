@@ -1,26 +1,58 @@
 import React from 'react';
-import logo from '../Images/logo.svg';
-import '../Styles/Pages/Index.css';
+import Item from "../Components/Item";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import {useEffect,useState} from "react";
 
-function App() {
-    return (
-        <div className="App">
-        <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-    className="App-link"
-    href="https://reactjs.org"
-    target="_blank"
-    rel="noopener noreferrer"
-        >
-        Learn React
-    </a>
-    </header>
-    </div>
-);
+
+
+interface ItemType {
+    id: string | number;
+    key: string | number;
+    type: string;
+    color: string;
+    size: string | number;
+    brand: string;
 }
 
-export default App;
+function Index(){
+    const [data,setData]=useState([]);
+    const getData=()=>{
+        fetch('https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94'
+            ,{
+                headers : {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }
+        )
+            .then(function(response){
+                return response.json();
+            })
+            .then(function(myJson) {
+                setData(myJson)
+            });
+    }
+    useEffect(()=>{
+        getData()
+    },[])
+
+    return (
+        <Container>
+            <Row>
+                {
+                    data && data.length>0 && data.map(
+                        (ItemData:ItemType,i)=>
+                            <Col key={i}>
+                                <Item key={i} id={ItemData.id}  type={ItemData.type} brand={ItemData.brand} size={ItemData.size} color={ItemData.color} />
+                            </Col>
+                    )
+                }
+            </Row>
+        </Container>
+);
+
+}
+
+export default Index;
