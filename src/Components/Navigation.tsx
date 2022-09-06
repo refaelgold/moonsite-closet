@@ -13,9 +13,9 @@ const NavbarComponent = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="text-white">
-                        <Nav.Link   href="#link">{t("Link")}1</Nav.Link>
-                        <Nav.Link   href="#link">{t("Link")}2</Nav.Link>
-                        <Nav.Link   href="#link">{t("Link")}3</Nav.Link>
+                        <Nav.Link   href="#link">{t("Home")}</Nav.Link>
+                        <Nav.Link   href="#link">{t("Clothes items")}</Nav.Link>
+                        <Nav.Link   href="#link">{t("Saved sets")}</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
