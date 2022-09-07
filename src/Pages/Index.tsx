@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import { useEffect, useState } from "react";
 import CounterBox from "../Components/CounterBox";
 import { ItemType } from "../Interfaces/ItemType";
+import {useNavigate} from "react-router-dom";
 
 
 function Index() {
@@ -12,6 +13,7 @@ function Index() {
     const [shirtsCount, setShirtsCount] = useState(0)
     const [pantsCount, setPantsCount] = useState(0)
     const [shoesCount, setShoesCount] = useState(0)
+    let navigate = useNavigate();
 
     useEffect(() => {
         fetch("https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94", {
@@ -55,12 +57,12 @@ function Index() {
         <div>
             <Container>
                 <Row>
-                    <Col></Col>
-                    <Col></Col>
+                    <Col>
+                        <button onClick={() => navigate(-1)}>{t("Back")}</button>
+                    </Col>
                     <Col>
                         <h1>{t("HomePage")}</h1>
                     </Col>
-                    <Col></Col>
                     <Col></Col>
                 </Row>
             </Container>

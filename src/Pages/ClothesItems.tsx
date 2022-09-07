@@ -5,11 +5,14 @@ import Col from "react-bootstrap/Col";
 import {useEffect,useState} from "react";
 import {useTranslation} from "react-i18next";
 import {ItemType} from "../Interfaces/ItemType";
+import { useNavigate} from "react-router-dom";
 
 
 
 function ClothesItems(){
     const {t} = useTranslation();
+    let navigate = useNavigate();
+
     const [data,setData]=useState([]);
 
     const getData=()=>{
@@ -34,10 +37,12 @@ function ClothesItems(){
     },[])
 
     return (
-        <div>
+        <>
         <Container>
             <Row>
-                <Col></Col>
+                <Col>
+                    <button onClick={() => navigate(-1)}>{t("Back")}</button>
+                </Col>
                 <Col>
                     <h1>{t("Clothes items")}</h1>
                 </Col>
@@ -56,7 +61,7 @@ function ClothesItems(){
                 }
             </Row>
         </Container>
-        </div>
+        </>
 );
 
 }
