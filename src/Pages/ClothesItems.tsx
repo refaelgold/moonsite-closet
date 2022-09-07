@@ -41,8 +41,17 @@ function ClothesItems(){
     },[])
 
     return (
+        <div>
         <Container>
-            <h1>{t("Clothes items")}</h1>
+            <Row>
+                <Col></Col>
+                <Col>
+                    <h1>{t("Clothes items")}</h1>
+                </Col>
+                <Col></Col>
+            </Row>
+        </Container>
+        <Container>
             <Row>
                 {
                     data && data.length>0 && data.map(
@@ -54,6 +63,7 @@ function ClothesItems(){
                 }
             </Row>
         </Container>
+        </div>
 );
 
 }
