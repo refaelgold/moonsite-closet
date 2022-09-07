@@ -11,6 +11,7 @@ function Item(props:any) {
             <Card.Body>
                 <Card.Title className={'card-title'}>{t("Item Number ")}{props.id}</Card.Title>
                 <ul>
+                    <li>{props.type}</li>
                     <li>{props.brand}</li>
                     <li>{props.size}</li>
                     <li>{props.color}</li>
