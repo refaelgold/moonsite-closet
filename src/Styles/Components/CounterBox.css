@@ -1,0 +1,7 @@
+.box-container{
+    width: 18rem;
+    border:3px solid yellow;
+    padding:5%;
+    margin:4% auto;
+    text-align: center;
+}

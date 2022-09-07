@@ -11,10 +11,10 @@ function Item(props:any) {
             <Card.Body>
                 <Card.Title className={'card-title'}>{t("Item Number ")}{props.id}</Card.Title>
                 <ul>
-                    <li>{props.type}</li>
-                    <li>{props.brand}</li>
-                    <li>{props.size}</li>
-                    <li>{props.color}</li>
+                    <li><span>{t("Type : ")}</span>{props.type}</li>
+                    <li><span>{t("Brand : ")}</span>{props.brand}</li>
+                    <li><span>{t("Size : ")}</span>{props.size}</li>
+                    <li><span>{t("Color : ")}</span>{props.color}</li>
                 </ul>
                 <Button variant="primary">{t("Choose")}</Button>
 

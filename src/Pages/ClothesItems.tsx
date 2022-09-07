@@ -43,10 +43,11 @@ function ClothesItems(){
                 <Col>
                     <button onClick={() => navigate(-1)}>{t("Back")}</button>
                 </Col>
+            </Row>
+            <Row>
                 <Col>
                     <h1>{t("Clothes items")}</h1>
                 </Col>
-                <Col></Col>
             </Row>
         </Container>
         <Container>
