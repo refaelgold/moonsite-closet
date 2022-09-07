@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Navigation from "./Components/Navigation";
 import './Styles/Index.css';
-import Index from './Pages/Index';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './i18n.tsx';
