@@ -5,8 +5,8 @@ import Col from "react-bootstrap/Col";
 import { useEffect, useState } from "react";
 import CounterBox from "../Components/CounterBox";
 import { ItemType } from "../Interfaces/ItemType";
-import {useNavigate} from "react-router-dom";
-
+import {Link, useNavigate} from "react-router-dom";
+import {Image} from "react-bootstrap";
 
 function Index() {
     const { t } = useTranslation();
@@ -60,17 +60,35 @@ function Index() {
                     <Col>
                         <button onClick={() => navigate(-1)}>{t("Back")}</button>
                     </Col>
+                </Row>
+                <Row>
                     <Col>
                         <h1>{t("HomePage")}</h1>
                     </Col>
-                    <Col></Col>
                 </Row>
             </Container>
             <Container>
                 <Row>
                     <Col><CounterBox title={t("Shirts")} count={shirtsCount} /></Col>
-                    <Col><CounterBox title={t("Shoes")} count={shoesCount} /></Col>
+                </Row>
+                <Row>
                     <Col><CounterBox title={t("Pants")} count={pantsCount} /></Col>
+                </Row>
+                <Row>
+                    <Col><CounterBox title={t("Shoes")} count={shoesCount} /></Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col>
+                    </Col>
+                    <Col>
+                        <Link to="/clothes-items">
+                            <Image src="images/clothes_banner.jpg" width={300} height={300}/>
+                        </Link>
+                    </Col>
+                    <Col>
+                    </Col>
                 </Row>
             </Container>
         </div>
