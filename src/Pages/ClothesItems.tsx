@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {useEffect,useState} from "react";
+import {useTranslation} from "react-i18next";
 
 
 interface ItemType {
@@ -16,7 +17,9 @@ interface ItemType {
 }
 
 function ClothesItems(){
+    const {t} = useTranslation();
     const [data,setData]=useState([]);
+
     const getData=()=>{
         fetch('https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94'
             ,{
@@ -29,8 +32,9 @@ function ClothesItems(){
             .then(function(response){
                 return response.json();
             })
-            .then(function(myJson) {
-                setData(myJson)
+            .then(function(itemDataJson) {
+                setData(itemDataJson)
+                localStorage.setItem('items', JSON.stringify(itemDataJson));
             });
     }
     useEffect(()=>{
@@ -39,7 +43,7 @@ function ClothesItems(){
 
     return (
         <Container>
-            <h1>Cloth Items</h1>
+            <h1>{t("Clothes items")}</h1>
             <Row>
                 {
                     data && data.length>0 && data.map(
