@@ -4,16 +4,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {useEffect,useState} from "react";
 import {useTranslation} from "react-i18next";
+import {ItemType} from "../Interfaces/ItemType";
 
 
-interface ItemType {
-    id: string | number;
-    key: string | number;
-    type: string;
-    color: string;
-    size: string | number;
-    brand: string;
-}
 
 function ClothesItems(){
     const {t} = useTranslation();
