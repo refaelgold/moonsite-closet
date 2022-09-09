@@ -37,7 +37,7 @@ function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
             })
             .then(function(itemDataJson) {
                 console.log("type is"+sizeFilter);
-                setSizeFilterData(itemDataJson.filter((item: { type: string; }) => item.type==='pants'));
+                setSizeFilterData(itemDataJson.filter((item: { type: string; }) => item.type==='shirts'));
                 setData(sizeFilterData)
 
                 localStorage.setItem('items', JSON.stringify(itemDataJson));
