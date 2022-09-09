@@ -1,17 +1,20 @@
 import {useTranslation} from "react-i18next";
-import {useNavigate} from "react-router-dom";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Clothes from "./Clothes";
 
 
-function ClothesItems(){
+
+function ClothesItems(this: any){
     const {t} = useTranslation();
 
+
+    // @ts-ignore
     return (
         <>
-            <h1>form</h1>
+            <Col></Col>
+            <Col>
+                <h1>{t("Layered Navigation")}</h1>
+            </Col>
+            <Col></Col>
         </>
     );
 

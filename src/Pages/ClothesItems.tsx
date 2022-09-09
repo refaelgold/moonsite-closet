@@ -28,12 +28,10 @@ function ClothesItems(){
         </Container>
         <Container>
             <Row>
-                <Col>
-                    <FilterClothes/>
-                </Col>
+                <FilterClothes/>
             </Row>
             <Row>
-                    <Clothes/>
+                <Clothes/>
             </Row>
         </Container>
         </>
