@@ -11,15 +11,10 @@ function ClothesItems(){
     const {t} = useTranslation();
     let navigate = useNavigate();
 
-
-    const shoes=t("Shoes");
-    const shirts=t("Shirts");
-    const pants=t("Pants");
-
     const itemtypes = {
-        shoes: shoes,
-        shirts:shirts,
-        pants: pants,
+        shoes: 'shoes',
+        shirts:'shirt',
+        pants: 'pants',
     }
 
     const itemsizes = {

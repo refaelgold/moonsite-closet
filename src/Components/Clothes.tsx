@@ -13,14 +13,17 @@ interface FilterProps {
 
 
 function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
+
     const {t} = useTranslation();
     let navigate = useNavigate();
 
     const [data,setData]=useState([]);
+    const [sizeFilterData,setSizeFilterData] = useState([]);
 
 
-    console.log(sizeFilter)
-    const getData=()=>{
+    // console.log(sizeFilter);
+    // console.log(typeFilter);
+    function getData(typeFilter: string){
         fetch('https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94'
             ,{
                 headers : {
@@ -33,12 +36,15 @@ function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
                 return response.json();
             })
             .then(function(itemDataJson) {
-                setData(itemDataJson)
+                console.log("type is"+sizeFilter);
+                setSizeFilterData(itemDataJson.filter((item: { type: string; }) => item.type==='pants'));
+                setData(sizeFilterData)
+
                 localStorage.setItem('items', JSON.stringify(itemDataJson));
             });
     }
     useEffect(()=>{
-        getData()
+        getData(typeFilter)
     },[])
 
     return (
