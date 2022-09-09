@@ -16,13 +16,35 @@ function ClothesItems(){
         pants: pants,
     }
 
+    const itemsizes = {
+        30: 30,
+        31: 31,
+        32: 32,
+        34: 34,
+        35: 35,
+        36: 36,
+        37: 37,
+        39: 39,
+        42: 42,
+        43: 43,
+        45:45,
+        46:46,
+        48:48,
+        "S":"S",
+        "L":"L",
+        "XL":"XL",
+        "XXL":"XXL",
+    }
 
-    const [itemtype, setItemtype] = useState("")
+    const [itemtype, setItemType] = useState("")
+    const [itemsize, setItemSize] = useState("")
 
 
     function getItemTypeValue(event: React.ChangeEvent<HTMLSelectElement>){
-        alert("been changed");
-        setItemtype(event.target.value);
+        setItemType(event.target.value);
+    }
+    function getItemSizeValue(event: React.ChangeEvent<HTMLSelectElement>){
+        setItemSize(event.target.value);
     }
 
 
@@ -36,8 +58,18 @@ function ClothesItems(){
                             <option value={c[1]}>{c[0]}</option>
                         ))}
                     </select>
-                    <h2>{`Item Type: ${itemtype}`}</h2>
+                    <h2>{`${itemtype}`}</h2>
                 </Fragment>
+
+                <Fragment>
+                    <select value={itemsize} onChange={event => {getItemSizeValue(event); event.preventDefault();}}>
+                        {Object.entries(itemsizes).map(c => (
+                            <option value={c[1]}>{c[0]}</option>
+                        ))}
+                    </select>
+                    <h2>{`${itemsize}`}</h2>
+                </Fragment>
+
             </Col>
             <Col></Col>
         </>
