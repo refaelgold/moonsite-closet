@@ -1,18 +1,43 @@
 import {useTranslation} from "react-i18next";
 import Col from "react-bootstrap/Col";
+import React, {useState,Fragment} from "react";
 
-
-
-function ClothesItems(this: any){
+function ClothesItems(){
     const {t} = useTranslation();
 
 
-    // @ts-ignore
+    const shoes=t("Shoes");
+    const shirts=t("Shirts");
+    const pants=t("Pants");
+
+    const itemtypes = {
+        shoes: shoes,
+        shirts:shirts,
+        pants: pants,
+    }
+
+
+    const [itemtype, setItemtype] = useState("")
+
+
+    function getItemTypeValue(event: React.ChangeEvent<HTMLSelectElement>){
+        alert("been changed");
+        setItemtype(event.target.value);
+    }
+
+
     return (
         <>
             <Col></Col>
             <Col>
-                <h1>{t("Layered Navigation")}</h1>
+                <Fragment>
+                    <select value={itemtype} onChange={event => {getItemTypeValue(event); event.preventDefault();}}>
+                        {Object.entries(itemtypes).map(c => (
+                            <option value={c[1]}>{c[0]}</option>
+                        ))}
+                    </select>
+                    <h2>{`Item Type: ${itemtype}`}</h2>
+                </Fragment>
             </Col>
             <Col></Col>
         </>
@@ -21,3 +46,6 @@ function ClothesItems(this: any){
 }
 
 export default ClothesItems;
+
+
+
