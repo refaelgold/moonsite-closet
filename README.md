@@ -21,6 +21,8 @@
 
 9.Creating a clickbait banner (V6 Router) for Clothes screen.
 
+10.Daily update for all NPM modules according to [Official Guide](https://nodejs.dev/en/learn/update-all-the-nodejs-dependencies-to-their-latest-version/) 
+
 ## Tasks needed to be done
 
 1.Using AI for item recommended according user experience.
