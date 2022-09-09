@@ -6,13 +6,20 @@ import {ItemType} from "../Interfaces/ItemType";
 import { useNavigate} from "react-router-dom";
 
 
+interface FilterProps {
+    sizeFilter: number | string;
+    typeFilter: string;
+}
 
-function ClothesItems(){
+
+function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
     const {t} = useTranslation();
     let navigate = useNavigate();
 
     const [data,setData]=useState([]);
 
+
+    console.log(sizeFilter)
     const getData=()=>{
         fetch('https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94'
             ,{

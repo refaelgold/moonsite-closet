@@ -54,6 +54,8 @@ function ClothesItems(){
     }
 
 
+
+
     return (
         <>
         <Container>
@@ -80,7 +82,6 @@ function ClothesItems(){
                         </select>
                         <h2>{`${itemtype}`}</h2>
                     </Fragment>
-
                     <Fragment>
                         <select value={itemsize} onChange={event => {getItemSizeValue(event); event.preventDefault();}}>
                             {Object.entries(itemsizes).map(c => (
@@ -91,9 +92,10 @@ function ClothesItems(){
                     </Fragment>
 
                 </Col>
-                <Col></Col>            </Row>
+                <Col></Col>
+            </Row>
             <Row>
-                <Clothes/>
+                <Clothes sizeFilter={itemsize} typeFilter={itemtype}/>
             </Row>
         </Container>
         </>
