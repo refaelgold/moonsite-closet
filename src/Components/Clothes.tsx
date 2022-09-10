@@ -18,12 +18,11 @@ function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
     let navigate = useNavigate();
 
     const [data,setData]=useState([]);
-    const [sizeFilterData,setSizeFilterData] = useState([]);
 
 
-    // console.log(sizeFilter);
-    // console.log(typeFilter);
+    console.log("outer loop "+ typeFilter);
     function getData(typeFilter: string){
+
         fetch('https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94'
             ,{
                 headers : {
@@ -36,27 +35,28 @@ function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
                 return response.json();
             })
             .then(function(itemDataJson) {
-                console.log("type is"+sizeFilter);
-                setSizeFilterData(itemDataJson.filter((item: { type: string; }) => item.type==='shirts'));
-                setData(sizeFilterData)
-
-                localStorage.setItem('items', JSON.stringify(itemDataJson));
+                if (typeFilter==='Choose'){
+                    setData(itemDataJson);
+                }else{
+                    setData(itemDataJson.filter((item: { type: string; }) => item.type===typeFilter))
+                }
+                console.log("type is "+typeFilter);
             });
     }
     useEffect(()=>{
-        getData(typeFilter)
+        getData("Choose")
     },[])
 
     return (
         <>
-                        {
-                            data && data.length>0 && data.map(
-                                (ItemData:ItemType,i)=>
-                                    <Col key={i}>
-                                        <Item key={i} id={ItemData.id}  type={ItemData.type} brand={ItemData.brand} size={ItemData.size} color={ItemData.color} />
-                                    </Col>
-                            )
-                        }
+            {
+                data && data.length>0 && data.map(
+                    (ItemData:ItemType,i)=>
+                        <Col key={i}>
+                            <Item key={i} id={ItemData.id}  type={ItemData.type} brand={ItemData.brand} size={ItemData.size} color={ItemData.color} />
+                        </Col>
+                )
+            }
         </>
     );
 

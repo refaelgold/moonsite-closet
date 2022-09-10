@@ -12,12 +12,14 @@ function ClothesItems(){
     let navigate = useNavigate();
 
     const itemtypes = {
+        choose: 'Choose',
         shoes: 'shoes',
-        shirts:'shirt',
+        shirts:'shirts',
         pants: 'pants',
     }
 
     const itemsizes = {
+        size:'Size',
         30: 30,
         31: 31,
         32: 32,
@@ -49,6 +51,8 @@ function ClothesItems(){
     }
 
 
+    console.log(itemtype);
+
 
 
     return (
@@ -75,7 +79,6 @@ function ClothesItems(){
                                 <option value={c[1]}>{c[0]}</option>
                             ))}
                         </select>
-                        <h2>{`${itemtype}`}</h2>
                     </Fragment>
                     <Fragment>
                         <select value={itemsize} onChange={event => {getItemSizeValue(event); event.preventDefault();}}>
@@ -83,7 +86,6 @@ function ClothesItems(){
                                 <option value={c[1]}>{c[0]}</option>
                             ))}
                         </select>
-                        <h2>{`${itemsize}`}</h2>
                     </Fragment>
 
                 </Col>
