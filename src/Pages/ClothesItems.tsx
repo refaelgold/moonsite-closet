@@ -5,21 +5,21 @@ import {useTranslation} from "react-i18next";
 import { useNavigate} from "react-router-dom";
 import Clothes from "../Components/Clothes";
 import React, {useState,Fragment} from "react";
-
+import  '../Styles/Components/ClothItem.css'
 
 function ClothesItems(){
     const {t} = useTranslation();
     let navigate = useNavigate();
 
-    const itemtypes = {
-        choose: 'Choose',
+    const itemType = {
+        'Choose type':'Choose type',
         shoes: 'shoes',
-        shirts:'shirts',
+        shirt:'shirt',
         pants: 'pants',
     }
 
-    const itemsizes = {
-        size:'Size',
+    const itemSize = {
+        'Choose size':'Choose size',
         30: 30,
         31: 31,
         32: 32,
@@ -39,64 +39,62 @@ function ClothesItems(){
         "XXL":"XXL",
     }
 
-    const [itemtype, setItemType] = useState("")
-    const [itemsize, setItemSize] = useState("")
+    let [itemtype, setItemType] = useState("Choose type")
+    let [itemsize, setItemSize] = useState<string|number>("Choose size")
 
 
     function getItemTypeValue(event: React.ChangeEvent<HTMLSelectElement>){
+        event.preventDefault();
         setItemType(event.target.value);
     }
     function getItemSizeValue(event: React.ChangeEvent<HTMLSelectElement>){
+        event.preventDefault();
         setItemSize(event.target.value);
     }
 
 
-    console.log(itemtype);
-
-
-
     return (
         <>
-        <Container>
-            <Row>
-                <Col>
-                    <button onClick={() => navigate(-1)}>{t("Back")}</button>
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                    <h1>{t("Clothes items")}</h1>
-                </Col>
-            </Row>
-        </Container>
-        <Container>
-            <Row>
-                <Col></Col>
-                <Col>
-                    <Fragment>
-                        <select value={itemtype} onChange={event => {getItemTypeValue(event); event.preventDefault();}}>
-                            {Object.entries(itemtypes).map(c => (
-                                <option value={c[1]}>{c[0]}</option>
-                            ))}
-                        </select>
-                    </Fragment>
-                    <Fragment>
-                        <select value={itemsize} onChange={event => {getItemSizeValue(event); event.preventDefault();}}>
-                            {Object.entries(itemsizes).map(c => (
-                                <option value={c[1]}>{c[0]}</option>
-                            ))}
-                        </select>
-                    </Fragment>
+            <Container>
+                <Row>
+                    <Col>
+                        <button onClick={() => navigate(-1)}>{t("Back")}</button>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col>
+                        <h1>{t("Clothes items")}</h1>
+                    </Col>
+                </Row>
+            </Container>
+            <Container>
+                <Row>
+                    <Col></Col>
+                    <Col>
+                        <Fragment>
+                                <select className={'custom-select'} value={itemtype}  defaultValue={"Choose type"} onChange={event => getItemTypeValue(event)}>
+                                    {Object.entries(itemType).map((c, i) => (
+                                        <option key={i} value={c[1]}>{c[0]}</option>
+                                    ))}
+                                </select>
+                        </Fragment>
+                        <Fragment>
+                            <select className={'custom-select'} value={itemsize}  defaultValue={"Choose size"}  onChange={event => {getItemSizeValue(event);}}>
+                                {Object.entries(itemSize).map((c, i) => (
+                                    <option key={i} value={c[1]}>{c[0]}</option>
+                                ))}
+                            </select>
+                        </Fragment>
 
-                </Col>
-                <Col></Col>
-            </Row>
-            <Row>
-                <Clothes sizeFilter={itemsize} typeFilter={itemtype}/>
-            </Row>
-        </Container>
+                    </Col>
+                    <Col></Col>
+                </Row>
+                <Row>
+                    <Clothes sizeFilter={itemsize} typeFilter={itemtype} />
+                </Row>
+            </Container>
         </>
-);
+    );
 
 }
 

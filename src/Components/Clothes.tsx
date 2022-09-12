@@ -1,27 +1,17 @@
 import Item from "../Components/Item";
 import Col from "react-bootstrap/Col";
 import {useEffect,useState} from "react";
-import {useTranslation} from "react-i18next";
 import {ItemType} from "../Interfaces/ItemType";
-import { useNavigate} from "react-router-dom";
+import {FilterProps} from "../Interfaces/FilterProps";
 
-
-interface FilterProps {
-    sizeFilter: number | string;
-    typeFilter: string;
-}
-
-
-function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
-
-    const {t} = useTranslation();
-    let navigate = useNavigate();
+function Clothes({ sizeFilter , typeFilter }: FilterProps){
 
     const [data,setData]=useState([]);
 
-
-    console.log("outer loop "+ typeFilter);
-    function getData(typeFilter: string){
+    useEffect(()=>{
+        getData(typeFilter,sizeFilter)
+    },[typeFilter,sizeFilter])
+    function getData(typeFilter: string,sizeFilter:string | number){
 
         fetch('https://run.mocky.io/v3/2d06d2c1-5a77-4ecd-843a-53247bcb0b94'
             ,{
@@ -35,17 +25,29 @@ function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
                 return response.json();
             })
             .then(function(itemDataJson) {
-                if (typeFilter==='Choose'){
+                if ((typeFilter==='Choose type') && (sizeFilter==='Choose size')) {
                     setData(itemDataJson);
-                }else{
+                }else if ((typeFilter!=='Choose type') && (sizeFilter==='Choose size')){
                     setData(itemDataJson.filter((item: { type: string; }) => item.type===typeFilter))
                 }
-                console.log("type is "+typeFilter);
+               else if (sizeFilter!=='Choose size'){
+                    setData(itemDataJson.filter((item: {
+                        //size need to accept Int and Strings and that's why I'm using "==" instead "===".
+                        // eslint-disable-next-line
+                        size: string | number}) => item.size==sizeFilter))
+                }
+                else if ((typeFilter!=='Choose type') && (sizeFilter!=='Choose size')){
+                    setData(
+                        itemDataJson.filter((item: {
+                            size: string | number; type: string; }) =>
+                        // size need to accept Int and Strings and that's why I'm using "==" instead "===".
+                        // eslint-disable-next-line
+                        item.size==sizeFilter && item.type===typeFilter)
+                    )
+                }
             });
     }
-    useEffect(()=>{
-        getData("Choose")
-    },[])
+
 
     return (
         <>
@@ -62,4 +64,4 @@ function ClothesItems({ sizeFilter , typeFilter }: FilterProps){
 
 }
 
-export default ClothesItems;
+export default Clothes;

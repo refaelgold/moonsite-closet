@@ -23,6 +23,9 @@
 
 10.Daily update for all NPM modules according to [Official Guide](https://nodejs.dev/en/learn/update-all-the-nodejs-dependencies-to-their-latest-version/) 
 
+11.Add filter fields on Cloth items page with using useEffect and if-else nested conditions. 
+
+
 ## Tasks needed to be done
 
 1.Using AI for item recommended according user experience.
