@@ -34,7 +34,7 @@ i18n
             // 'zh-CN':['cn'],
             default:['he']
         },
-        debug: true,
+        debug: false,
 
         interpolation: {
             escapeValue: false // not needed for react as it escapes by default
