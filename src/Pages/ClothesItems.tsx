@@ -67,11 +67,13 @@ function ClothesItems(){
             </Container>
             <Container>
                 <Row>
-                    <Col></Col>
                     <Col>
                         <Fragment>
                             <label>{t("Choose Type")}</label>
-                            <select className={'custom-select'} value={itemtype}  onChange={event => getItemTypeValue(event)}>
+                            <select className={'custom-select'} value={itemtype}  onChange={event => getItemTypeValue(event)}  defaultValue={"Choose type"}>
+                                <option value={"Choose type"} disabled>
+                                    {t("Choose Type")}
+                                </option>
                                 {Object.entries(itemType).map((c, i) => (
                                     <option key={i} value={c[1]}>{c[0]}</option>
                                 ))}
@@ -79,14 +81,16 @@ function ClothesItems(){
                         </Fragment>
                         <Fragment>
                             <label>{t("Choose Size")}</label>
-                            <select className={'custom-select'} value={itemsize}   onChange={event => {getItemSizeValue(event);}}>
+                            <select className={'custom-select'} value={itemsize}   onChange={event => {getItemSizeValue(event);}} defaultValue={"Choose size"}>
+                                <option value={"Choose size"} disabled>
+                                    {t("Choose Size")}
+                                </option>
                                 {Object.entries(itemSize).map((c, i) => (
                                     <option key={i} value={c[1]}>{c[0]}</option>
                                 ))}
                             </select>
                         </Fragment>
                     </Col>
-                    <Col></Col>
                 </Row>
                 <Row>
                     <Clothes sizeFilter={itemsize} typeFilter={itemtype} />
