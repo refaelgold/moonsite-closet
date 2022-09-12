@@ -1,4 +1,8 @@
+label{
+    margin-left:10px;
+}
 .custom-select {
+    margin-left:10px;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

@@ -12,14 +12,12 @@ function ClothesItems(){
     let navigate = useNavigate();
 
     const itemType = {
-        'Choose type':'Choose type',
         shoes: 'shoes',
         shirt:'shirt',
         pants: 'pants',
     }
 
     const itemSize = {
-        'Choose size':'Choose size',
         30: 30,
         31: 31,
         32: 32,
@@ -72,20 +70,21 @@ function ClothesItems(){
                     <Col></Col>
                     <Col>
                         <Fragment>
-                                <select className={'custom-select'} value={itemtype}  defaultValue={"Choose type"} onChange={event => getItemTypeValue(event)}>
-                                    {Object.entries(itemType).map((c, i) => (
-                                        <option key={i} value={c[1]}>{c[0]}</option>
-                                    ))}
-                                </select>
+                            <label>{t("Choose Type")}</label>
+                            <select className={'custom-select'} value={itemtype}  onChange={event => getItemTypeValue(event)}>
+                                {Object.entries(itemType).map((c, i) => (
+                                    <option key={i} value={c[1]}>{c[0]}</option>
+                                ))}
+                            </select>
                         </Fragment>
                         <Fragment>
-                            <select className={'custom-select'} value={itemsize}  defaultValue={"Choose size"}  onChange={event => {getItemSizeValue(event);}}>
+                            <label>{t("Choose Size")}</label>
+                            <select className={'custom-select'} value={itemsize}   onChange={event => {getItemSizeValue(event);}}>
                                 {Object.entries(itemSize).map((c, i) => (
                                     <option key={i} value={c[1]}>{c[0]}</option>
                                 ))}
                             </select>
                         </Fragment>
-
                     </Col>
                     <Col></Col>
                 </Row>
