@@ -69,7 +69,6 @@ function ClothesItems(){
                 <Row>
                     <Col>
                         <Fragment>
-                            <label>{t("Choose Type")}</label>
                             <select className={'custom-select'} value={itemtype}  onChange={event => getItemTypeValue(event)}  defaultValue={"Choose type"}>
                                 <option value={"Choose type"} disabled>
                                     {t("Choose Type")}
@@ -80,7 +79,6 @@ function ClothesItems(){
                             </select>
                         </Fragment>
                         <Fragment>
-                            <label>{t("Choose Size")}</label>
                             <select className={'custom-select'} value={itemsize}   onChange={event => {getItemSizeValue(event);}} defaultValue={"Choose size"}>
                                 <option value={"Choose size"} disabled>
                                     {t("Choose Size")}
