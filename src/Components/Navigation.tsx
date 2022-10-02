@@ -7,14 +7,16 @@ import {useTranslation} from "react-i18next"
 const NavbarComponent = () => {
     const {t} = useTranslation();
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="dark" expand="lg">
             <Container>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="text-white">
-                        <Nav.Link   href="/">{t("Home")}</Nav.Link>
-                        <Nav.Link   href="/clothes-items">{t("Clothes items")}</Nav.Link>
+                    <Nav>
+                        <Nav.Link   className="text-white" href="/">{t("Home")}</Nav.Link>
+                        <Nav.Link   className="text-white"  href="/clothes-items">{t("Clothes items")}</Nav.Link>
+{/*
                         <Nav.Link   href="#link">{t("Saved sets")}</Nav.Link>
+*/}
                     </Nav>
                 </Navbar.Collapse>
             </Container>
