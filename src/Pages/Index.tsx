@@ -82,13 +82,9 @@ function Index(){
         <div>
             <Container>
                 <Row>
-                    <Col></Col>
-                    <Col></Col>
                     <Col>
                         <h1>{t("HomePage")}</h1>
                     </Col>
-                    <Col></Col>
-                    <Col></Col>
                 </Row>
             </Container>
             <Container>

@@ -37,11 +37,9 @@ function ClothesItems(){
         <div>
         <Container>
             <Row>
-                <Col></Col>
                 <Col>
                     <h1>{t("Clothes items")}</h1>
                 </Col>
-                <Col></Col>
             </Row>
         </Container>
         <Container>
@@ -49,9 +47,7 @@ function ClothesItems(){
                 {
                     data && data.length>0 && data.map(
                         (ItemData:ItemType,i)=>
-                            <Col key={i}>
                                 <Item key={i} id={ItemData.id}  type={ItemData.type} brand={ItemData.brand} size={ItemData.size} color={ItemData.color} />
-                            </Col>
                     )
                 }
             </Row>
