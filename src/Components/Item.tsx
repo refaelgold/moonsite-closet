@@ -15,7 +15,7 @@ function Item(props:any) {
                     <li><span>{t("Type : ")}</span>{props.type}</li>
                     <li><span>{t("Brand : ")}</span>{props.brand}</li>
                     <li><span>{t("Size : ")}</span>{props.size}</li>
-                    <li><span>{t("Color : ")}</span>{props.color}</li>
+                    <li><span>{t("Color")}</span><span style={{width:"30px",height: "30px", backgroundColor:props.color, display: "block", margin: "0 auto", borderRadius: "30px",borderColor:'black',marginBottom:'5px',borderStyle:'solid'}}></span></li>
                 </ul>
                 <Button variant="primary">{t("Choose")}</Button>
 
