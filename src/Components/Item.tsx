@@ -2,12 +2,13 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {useTranslation} from "react-i18next"
 import  '../Styles/Components/Item.css'
+import cloth_item_image from "../Images/cloth-item.jpg";
 
 function Item(props:any) {
     const {t} = useTranslation();
     return (
         <Card className={'item-container'}  >
-            <Card.Img variant="top" src="https://api.lorem.space/image/movie?w=200&h=220" width={200} height={200} />
+            <Card.Img variant="top" src={cloth_item_image} width={200} height={200} />
             <Card.Body>
                 <Card.Title className={'card-title'}>{t("Item Number ")}{props.id}</Card.Title>
                 <ul>
